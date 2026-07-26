@@ -61,9 +61,43 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - Practiced Idempotency
 - Wrote and executed my first Ansible Playbook
 - Validated playbooks using `--syntax-check`
-- Used dry-run mode (`-C`)
-- Debugged playbooks using verbosity flags (`-v`, `-vv`, `-vvv`)
+- Tested playbooks using Dry Run (`-C`)
+- Used verbosity flags (`-v`, `-vv`, `-vvv`) for debugging
 - Analyzed the `PLAY RECAP` output
+
+---
+
+### ✅ Day 03 – Modules Deep Dive & Ansible Configuration
+
+#### Topics Covered
+- Working with Ansible Modules
+- Module Workflow
+- Built-in vs Community Modules
+- `ansible-galaxy`
+- Module Requirements
+- Python Dependencies
+- MySQL Community Modules
+- Advanced `copy` Module
+- `ansible.cfg`
+- Configuration Priority
+- Ansible Configuration Sections
+
+#### Hands-on Practice
+- Learned how to search and use Ansible modules from the official documentation
+- Installed community collections using `ansible-galaxy`
+- Understood how community modules differ from built-in modules
+- Learned how module dependencies work on target machines
+- Explored MySQL/MariaDB community modules
+- Configured a project-level `ansible.cfg`
+- Set default inventory and privilege escalation options
+- Learned how to simplify commands using `ansible.cfg`
+- Explored logging and parallel execution settings
+
+#### Key Learnings
+- Reading the official module documentation is an essential DevOps skill.
+- Community collections are installed on the Control Node using `ansible-galaxy`.
+- Some modules require additional Python packages on the target machine.
+- Project-level `ansible.cfg` should always be committed to Git for consistent team environments.
 
 ---
 
@@ -76,22 +110,7 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 | Automation Tool | Ansible |
 | Cloud Platform | AWS EC2 |
 
----
 
-## 📂 Repository Structure
-
-```
-.
-├── playbooks/
-├── inventory/
-├── notes/
-│   ├── Day-01.md
-│   └── Day-02.md
-├── screenshots/
-├── README.md
-```
-
----
 
 ## 📸 Screenshots
 
@@ -100,13 +119,15 @@ The `screenshots/` directory contains images of:
 - Inventory configuration
 - Ad-hoc command execution
 - Playbook execution
+- Module practice
+- Configuration examples
 - Terminal outputs
 
 ---
 
 ## 📝 Notes
 
-The `notes/` directory contains detailed notes for each day's learning, including concepts, commands, examples, and troubleshooting steps.
+The `notes/` directory contains detailed notes for each day's learning, including concepts, commands, examples, troubleshooting, and hands-on practice.
 
 ---
 
@@ -114,16 +135,18 @@ The `notes/` directory contains detailed notes for each day's learning, includin
 
 This repository is part of my **Learn in Public** journey, where I document my daily progress in learning Ansible through practical implementation and continuous practice.
 
-More daily updates will be added as I continue exploring:
+Upcoming topics include:
+
 - Variables
-- Conditionals
-- Loops
 - Handlers
+- Loops
+- Conditionals
 - Templates
 - Roles
 - Ansible Vault
 - Ansible Galaxy
-- Real-world automation projects
+- Dynamic Inventory
+- Real-world Automation Projects
 
 ---
 
