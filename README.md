@@ -87,7 +87,7 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - Installed community collections using `ansible-galaxy`
 - Understood how community modules differ from built-in modules
 - Learned how module dependencies work on target machines
-- Explored MySQL/MariaDB community modules
+- Explored MySQL/MariaDB modules
 - Configured a project-level `ansible.cfg`
 - Set default inventory and privilege escalation options
 - Learned how to simplify commands using `ansible.cfg`
@@ -98,6 +98,44 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - Community collections are installed on the Control Node using `ansible-galaxy`.
 - Some modules require additional Python packages on the target machine.
 - Project-level `ansible.cfg` should always be committed to Git for consistent team environments.
+
+---
+
+### ✅ Day 04 – Variables, group_vars, host_vars & Fact Variables
+
+#### Topics Covered
+- Custom Variables
+- Variable Syntax
+- `vars` in Playbooks
+- `group_vars`
+- `host_vars`
+- `vars_files`
+- Command Line Variables (`-e`)
+- Variable Precedence
+- Variable Types (String, List, Dictionary)
+- `debug` Module
+- `register` Keyword
+- Registered Variables
+- Fact Variables
+- `setup` Module
+- Gathering Facts
+
+#### Hands-on Practice
+- Created reusable variables in playbooks
+- Organized variables using `group_vars` and `host_vars`
+- Explored variable precedence through different scopes
+- Used the `debug` module to print variables and messages
+- Captured task output using `register`
+- Retrieved system information using the `setup` module
+- Accessed OS, Memory, CPU, Hostname, and Network facts
+- Learned when to disable fact gathering using `gather_facts: false`
+
+#### Key Learnings
+- Variables make playbooks reusable and easier to maintain.
+- `group_vars` and `host_vars` are the preferred way to manage environment-specific configuration.
+- Understanding variable precedence is essential when the same variable exists in multiple locations.
+- The `debug` module is useful for troubleshooting, while `register` allows task outputs to be reused.
+- Fact Variables provide valuable system information that can be used to create dynamic playbooks.
 
 ---
 
@@ -120,6 +158,7 @@ The `screenshots/` directory contains images of:
 - Ad-hoc command execution
 - Playbook execution
 - Module practice
+- Variable management
 - Configuration examples
 - Terminal outputs
 
@@ -135,14 +174,13 @@ The `notes/` directory contains detailed notes for each day's learning, includin
 
 This repository is part of my **Learn in Public** journey, where I document my daily progress in learning Ansible through practical implementation and continuous practice.
 
-Upcoming topics include:
+### Upcoming Topics
 
-- Variables
-- Handlers
+- Conditionals (`when`)
 - Loops
-- Conditionals
-- Templates
+- Handlers
 - Roles
+- Templates
 - Ansible Vault
 - Ansible Galaxy
 - Dynamic Inventory
