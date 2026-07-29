@@ -4,11 +4,11 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 
 ---
 
-## 📚 Learning Progress
+# 📚 Learning Progress
 
-### ✅ Day 01 – Introduction to Ansible & Inventory
+## ✅ Day 01 – Introduction to Ansible & Inventory
 
-#### Topics Covered
+### Topics Covered
 - Introduction to Ansible
 - Ansible Architecture
 - Inventory File
@@ -17,21 +17,22 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - Group Variables (`vars`)
 - Ansible Ping Module
 
-#### Hands-on Practice
+### Hands-on Practice
 - Configured an Ubuntu EC2 instance as the Ansible Control Node
 - Connected and managed three CentOS EC2 instances
 - Created an Inventory file
 - Organized hosts using groups, children, and vars
 - Verified connectivity using the `ping` module
-- Resolved:
-  - Host Key Verification error
-  - Inventory permission issue using `chmod 400`
+
+### Challenges Solved
+- Host Key Verification error
+- Inventory permission issue using `chmod 400`
 
 ---
 
-### ✅ Day 02 – Ad-hoc Commands & My First Playbook
+## ✅ Day 02 – Ad-hoc Commands & My First Playbook
 
-#### Topics Covered
+### Topics Covered
 - Ad-hoc Commands
 - Core Ansible Modules
 - Privilege Escalation (`--become`)
@@ -42,7 +43,7 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - Running Playbooks
 - Debugging Playbooks
 
-#### Modules Learned
+### Modules Learned
 - yum / apt
 - service
 - copy
@@ -54,24 +55,27 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - ping
 - setup
 
-#### Hands-on Practice
-- Executed multiple Ad-hoc Commands
+### Hands-on Practice
+- Executed Ad-hoc Commands
 - Installed packages using the `yum` module
 - Managed services using the `service` module
 - Practiced Idempotency
-- Wrote and executed my first Ansible Playbook
+- Wrote and executed my first Playbook
 - Validated playbooks using `--syntax-check`
 - Tested playbooks using Dry Run (`-C`)
-- Used verbosity flags (`-v`, `-vv`, `-vvv`) for debugging
-- Analyzed the `PLAY RECAP` output
+- Used verbosity flags (`-v`, `-vv`, `-vvv`)
+- Analyzed `PLAY RECAP`
+
+### Challenges Solved
+- Fixed privilege escalation issues using `--become`
+- Corrected YAML indentation mistakes
 
 ---
 
-### ✅ Day 03 – Modules Deep Dive & Ansible Configuration
+## ✅ Day 03 – Modules Deep Dive & Ansible Configuration
 
-#### Topics Covered
+### Topics Covered
 - Working with Ansible Modules
-- Module Workflow
 - Built-in vs Community Modules
 - `ansible-galaxy`
 - Module Requirements
@@ -82,110 +86,157 @@ This repository documents my hands-on learning of **Ansible** as part of my DevO
 - Configuration Priority
 - Ansible Configuration Sections
 
-#### Hands-on Practice
-- Learned how to search and use Ansible modules from the official documentation
+### Hands-on Practice
 - Installed community collections using `ansible-galaxy`
-- Understood how community modules differ from built-in modules
-- Learned how module dependencies work on target machines
-- Explored MySQL/MariaDB modules
-- Configured a project-level `ansible.cfg`
-- Set default inventory and privilege escalation options
-- Learned how to simplify commands using `ansible.cfg`
-- Explored logging and parallel execution settings
+- Explored official module documentation
+- Learned module dependencies
+- Configured project-level `ansible.cfg`
+- Configured inventory, logging, and privilege escalation
 
-#### Key Learnings
-- Reading the official module documentation is an essential DevOps skill.
-- Community collections are installed on the Control Node using `ansible-galaxy`.
-- Some modules require additional Python packages on the target machine.
-- Project-level `ansible.cfg` should always be committed to Git for consistent team environments.
+### Challenges Solved
+- Installed missing Python dependencies required by MySQL modules
+- Understood Python Interpreter Discovery warnings
+- Learned how to resolve deprecation warnings
 
 ---
 
-### ✅ Day 04 – Variables, group_vars, host_vars & Fact Variables
+## ✅ Day 04 – Variables, group_vars, host_vars & Fact Variables
 
-#### Topics Covered
+### Topics Covered
 - Custom Variables
 - Variable Syntax
-- `vars` in Playbooks
+- `vars`
 - `group_vars`
 - `host_vars`
 - `vars_files`
-- Command Line Variables (`-e`)
 - Variable Precedence
-- Variable Types (String, List, Dictionary)
+- Command Line Variables (`-e`)
+- Variable Types
 - `debug` Module
-- `register` Keyword
-- Registered Variables
+- `register`
 - Fact Variables
 - `setup` Module
 - Gathering Facts
 
-#### Hands-on Practice
-- Created reusable variables in playbooks
+### Hands-on Practice
+- Created reusable variables
 - Organized variables using `group_vars` and `host_vars`
-- Explored variable precedence through different scopes
-- Used the `debug` module to print variables and messages
-- Captured task output using `register`
-- Retrieved system information using the `setup` module
-- Accessed OS, Memory, CPU, Hostname, and Network facts
-- Learned when to disable fact gathering using `gather_facts: false`
+- Used the `debug` module
+- Stored task outputs using `register`
+- Retrieved system facts using the `setup` module
+- Explored OS, CPU, Memory, Hostname and Network facts
 
-#### Key Learnings
-- Variables make playbooks reusable and easier to maintain.
-- `group_vars` and `host_vars` are the preferred way to manage environment-specific configuration.
-- Understanding variable precedence is essential when the same variable exists in multiple locations.
-- The `debug` module is useful for troubleshooting, while `register` allows task outputs to be reused.
-- Fact Variables provide valuable system information that can be used to create dynamic playbooks.
+### Challenges Solved
+- Fixed variable syntax issues
+- Understood variable precedence
+- Learned when Fact Variables are unavailable (`gather_facts: false`)
 
 ---
 
-## 🛠️ Lab Environment
+## ✅ Day 05 – Conditionals, Loops & Template Module
+
+### Topics Covered
+- Decision Making using `when`
+- Loops using the `loop` keyword
+- The `item` variable
+- Installing multiple packages with loops
+- Creating multiple users with loops
+- Looping over Variables
+- Looping through Dictionaries
+- Using `debug` with loops
+- Jinja2 Templates
+- Template Module
+- Dynamic Configuration Files
+- Difference between `copy` and `template` modules
+
+### Hands-on Practice
+- Executed tasks conditionally using `when`
+- Installed multiple packages using a single loop
+- Created multiple users using loops
+- Used variables inside loops
+- Printed loop values using `debug`
+- Iterated through dictionaries using `item.name`
+- Generated dynamic configuration files using the `template` module
+- Compared `copy` vs `template` modules
+
+### Challenges Solved
+- Fixed undefined variable errors caused by using `item` outside loops
+- Corrected YAML indentation for loop blocks
+- Learned the correct use cases for `copy` and `template`
+- Practiced writing accurate conditional statements
+
+---
+
+# 🛠️ Lab Environment
 
 | Component | Details |
 |-----------|---------|
 | Control Node | Ubuntu EC2 |
 | Managed Nodes | 3 × CentOS EC2 |
-| Automation Tool | Ansible |
 | Cloud Platform | AWS EC2 |
+| Automation Tool | Ansible |
 
+---
 
+# 📂 Repository Structure
 
-## 📸 Screenshots
+```text
+.
+├── inventory/
+├── playbooks/
+├── group_vars/
+├── host_vars/
+├── templates/
+├── notes/
+│   ├── Day-01.md
+│   ├── Day-02.md
+│   ├── Day-03.md
+│   ├── Day-04.md
+│   └── Day-05.md
+├── screenshots/
+├── ansible.cfg
+└── README.md
+```
+
+---
+
+# 📸 Screenshots
 
 The `screenshots/` directory contains images of:
-- Lab setup
-- Inventory configuration
-- Ad-hoc command execution
-- Playbook execution
-- Module practice
-- Variable management
-- Configuration examples
-- Terminal outputs
+
+- Lab Setup
+- Inventory Configuration
+- Ad-hoc Commands
+- Playbook Execution
+- Variables Practice
+- Loop Examples
+- Template Module Examples
+- Configuration Examples
+- Terminal Outputs
 
 ---
 
-## 📝 Notes
+# 📝 Notes
 
-The `notes/` directory contains detailed notes for each day's learning, including concepts, commands, examples, troubleshooting, and hands-on practice.
+The `notes/` directory contains detailed notes for each day's learning, including concepts, examples, commands, troubleshooting, and hands-on practice.
 
 ---
 
-## 🎯 Goal
+# 🎯 Goal
 
-This repository is part of my **Learn in Public** journey, where I document my daily progress in learning Ansible through practical implementation and continuous practice.
+This repository is part of my **Learn in Public** journey, where I document my daily progress in learning Ansible through practical implementation and continuous hands-on practice.
 
-### Upcoming Topics
+Upcoming topics include:
 
-- Conditionals (`when`)
-- Loops
-- Handlers
 - Roles
-- Templates
+- Role Directory Structure
+- Ansible Galaxy Roles
 - Ansible Vault
-- Ansible Galaxy
 - Dynamic Inventory
+- Tags
+- Error Handling
 - Real-world Automation Projects
 
 ---
 
-⭐ Thanks for visiting! Feel free to explore the repository and follow along with my Ansible learning journey.
+⭐ If you're also learning Ansible, feel free to explore this repository and follow along with my daily learning journey.
