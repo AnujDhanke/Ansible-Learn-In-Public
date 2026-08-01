@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Create key pair
+      ec2_key:
+        name: ansible_key
+        region: us-east-1
+      register: keyout
+
+    #- name: print keyoutput
+      #debug:
+        #var: keyout
+
+    - name: save key
+      copy:
+        content: "{{keyout.key.private_key}}"
+        dest: ./ansible_key.pem
+      when: keyout.changed == True
+
+    - name: start an instanc
+      amazon.aws.ec2_instance:
+        name: "public-compute-instance"
+        key_name: "ansible_key"
+        #vpc_subnet_id: subnet-5ca1ab1e
+        instance_type: t2.micro
+        security_group: default
+        #network_interfaces:
+           #- assign_public_ip: true
+        image_id: ami-02b64aa047cb5edf5
+        exact_count: 1
+        region: us-east-1
+        tags:
+          Environment: Testing
+        state: running
+        wait: True
